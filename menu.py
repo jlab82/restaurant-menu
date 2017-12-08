@@ -6,19 +6,17 @@ def intromenu(comida, precio):
     while True:
         comida.append(raw_input("Introduzca plato: "))
         precio.append(raw_input("Introduzca precio: "))
-        pregunta = raw_input("¿Quiere introducir otro primer plato? s/n: ")
+        pregunta = raw_input("¿Quiere introducir otro plato? s/n: ")
         if pregunta == "n" or pregunta == "no":
             break
 
 #función que imprime el menú del día en fichero de texto, situándose para escribir a partir de la última posición conocida
-def impmenu (comida, precio):
-    menu = open("menu.txt", "w+")
-    posicion = menu.tell()
+def impmenu (comida, precio, tipo):
+    menu.write(tipo + "\n")
     for i in range(len(precio)):
+        posicion = menu.tell()
         menu.seek(posicion)
-        menu.write("\n" + comida[i] + " ----------- " + precio[i] + "€")
-    menu.close()
-
+        menu.write(comida[i] + " ----------- " + precio[i] + "€" + "\n")
 
 #primeros platos
 print ("Introduzca primeros platos y sus precios")
@@ -41,10 +39,11 @@ intromenu (postres, precio_postres)
 
 
 #Impresión
-impmenu(primeros, precio_primeros)
-impmenu(segundos, precio_segundos)
-impmenu(postres, precio_postres)
-
+menu = open("menu.txt", "w+")
+impmenu(primeros, precio_primeros, "Primeros Platos")
+impmenu(segundos, precio_segundos, "Segundos Platos")
+impmenu(postres, precio_postres, "Postres")
+menu.close()
 
 
 
