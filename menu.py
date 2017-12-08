@@ -18,20 +18,20 @@ def impmenu (comida, precio, tipo):
         menu.seek(posicion)
         menu.write(comida[i] + " ----------- " + precio[i] + "€" + "\n")
 
-#primeros platos
+#primeros platos.
 print ("Introduzca primeros platos y sus precios")
 primeros = []
 precio_primeros = []
 intromenu (primeros, precio_primeros)
 
 
-#segundos platos
+#segundos platos.
 print ("Introduzca segundos platos y sus precios")
 segundos = []
 precio_segundos = []
 intromenu (segundos, precio_segundos)
 
-#postres
+#postres.
 print ("Introduzca postres y sus precios")
 postres = []
 precio_postres = []
